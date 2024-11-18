@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const featuredPosts = [
+  {
+    title: "The Future of Large Language Models",
+    description: "Exploring the next generation of AI language models and their potential impact on society.",
+    date: "2024-04-15",
+    slug: "future-of-llms"
+  },
+  {
+    title: "AI in Healthcare: 2024 Breakthroughs",
+    description: "How artificial intelligence is revolutionizing medical diagnosis and treatment planning.",
+    date: "2024-04-10",
+    slug: "ai-healthcare-2024"
+  },
+  {
+    title: "Ethics in AI Development",
+    description: "Discussing the importance of responsible AI development and ethical considerations.",
+    date: "2024-04-05",
+    slug: "ethics-in-ai"
+  }
+];
+---
+
+<Layout title="AI Insights - Latest in Artificial Intelligence">
+  <main>
+    <section class="bg-gradient-to-r from-tech-accent to-purple-600 text-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <h1 class="text-4xl md:text-5xl font-bold">
+          Exploring the Future of AI Technology
+        </h1>
+        <p class="mt-6 text-xl text-gray-100 max-w-2xl">
+          Deep insights into artificial intelligence, machine learning, and the technology shaping our future.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl font-bold mb-8">Latest Articles</h2>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {featuredPosts.map(post => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

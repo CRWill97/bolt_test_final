@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = {
+  'future-of-llms': {
+    title: "The Future of Large Language Models",
+    date: "2024-04-15",
+    content: `
+      <h1>The Future of Large Language Models</h1>
+      <p>As we venture deeper into 2024, the landscape of large language models (LLMs) continues to evolve at an unprecedented pace. This article explores the latest developments and future predictions in the field of AI language models.</p>
+      <h2>Current State of LLMs</h2>
+      <p>Today's language models have achieved remarkable capabilities in understanding and generating human-like text, but they still face challenges in areas like factual accuracy and contextual understanding.</p>
+      <h2>Future Developments</h2>
+      <p>Researchers are working on more efficient training methods, better reasoning capabilities, and improved factual accuracy. The next generation of LLMs might incorporate multimodal learning and better common-sense reasoning.</p>
+    `
+  },
+  'ai-healthcare-2024': {
+    title: "AI in Healthcare: 2024 Breakthroughs",
+    date: "2024-04-10",
+    content: `
+      <h1>AI in Healthcare: 2024 Breakthroughs</h1>
+      <p>The integration of AI in healthcare has led to remarkable advances in diagnosis, treatment planning, and patient care. This article examines the most significant developments of 2024.</p>
+      <h2>Diagnostic Improvements</h2>
+      <p>AI-powered diagnostic tools have achieved new levels of accuracy in detecting various conditions, particularly in medical imaging and pathology.</p>
+      <h2>Treatment Planning</h2>
+      <p>Machine learning models are now capable of suggesting personalized treatment plans based on patient data and medical history.</p>
+    `
+  },
+  'ethics-in-ai': {
+    title: "Ethics in AI Development",
+    date: "2024-04-05",
+    content: `
+      <h1>Ethics in AI Development</h1>
+      <p>As AI systems become more sophisticated and widespread, the importance of ethical considerations in their development cannot be overstated.</p>
+      <h2>Key Ethical Considerations</h2>
+      <p>We explore the main ethical challenges facing AI development, including bias, transparency, and accountability.</p>
+      <h2>Future Framework</h2>
+      <p>Industry leaders and researchers are working to establish comprehensive ethical frameworks for AI development and deployment.</p>
+    `
+  }
+};
+
+const { slug } = Astro.params;
+const post = posts[slug];
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={post.title}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="prose prose-lg prose-gray mx-auto">
+      <time class="text-gray-500 text-sm">{post.date}</time>
+      <div set:html={post.content} />
+    </div>
+  </article>
+</Layout>
